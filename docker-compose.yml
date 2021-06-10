@@ -1,0 +1,21 @@
+version: '3'
+services: 
+    web-app:
+        build: 
+            context: .
+            dockerfile: Dockerfile.dev
+        ports: 
+            - "4005:3000"
+        volumes: 
+            - .:/usr/app
+    tests:
+        build: 
+            context: .
+            dockerfile: Dockerfile.dev
+        volumes: 
+            - .:/usr/app
+        command: 
+            ["npm","run","test"]
+
+            
+            
